@@ -1,1 +1,0 @@
-<original content of the file skill.md>
