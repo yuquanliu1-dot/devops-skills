@@ -1,6 +1,7 @@
 ---
 name: showme
-description: ''
+description: 'xx'
+author: chalie
 ---
 
 # showme
