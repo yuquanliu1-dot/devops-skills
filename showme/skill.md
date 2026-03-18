@@ -1,6 +1,6 @@
 ---
 name: showme
-description: 'x'
+description: 'xx'
 author: chalie
 ---
 
