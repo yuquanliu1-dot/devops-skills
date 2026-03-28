@@ -1,6 +1,7 @@
 ---
 name: codegen
 description: Code generation utilities for json-render. Use when generating code from UI specs, building custom code exporters, traversing specs, or serializing props for @json-render/codegen.
+author: charlie
 ---
 
 # @json-render/codegen
