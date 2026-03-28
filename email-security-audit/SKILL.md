@@ -1,6 +1,8 @@
 ---
 name: email-security-audit
 description: "邮件安全审计工具 - 分析邮件头(SPF/DKIM/DMARC)、检测钓鱼邮件、验证发件人身份、审计企业邮件安全配置。Use when: (1) 分析可疑/钓鱼邮件, (2) 审计邮件认证配置, (3) 检查企业域名安全记录, (4) 调查邮件威胁, (5) 生成安全审计报告, (6) 解析邮件头追踪路由."
+author: charlie_liu
+tags: [CI/CD]
 ---
 
 # 邮件安全审计 (Email Security Audit)
