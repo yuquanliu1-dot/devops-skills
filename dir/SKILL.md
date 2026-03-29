@@ -1,6 +1,7 @@
 ---
 name: dir
 description: Directory listing and exploration tool. Use when the user wants to (1) list files and folders in a directory, (2) show directory tree structure, (3) filter files by pattern or extension, (4) get file details like size/type/date, or (5) explore project structure. Triggers on commands like "dir", "ls", "list files", "show directory", "tree", "what's in this folder".
+author: charlie
 ---
 
 # Directory Listing
