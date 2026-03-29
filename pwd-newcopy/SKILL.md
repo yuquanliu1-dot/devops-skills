@@ -2,7 +2,7 @@
 name: pwd-newcopy
 description: Print the current working directory and count files. Use when you need to know the current directory path or count the number of files in a directory.
 version: 1.1.0
-author: Claude
+author: CharlieLYQY
 tags: [utility, filesystem, navigation, counting]
 ---
 
