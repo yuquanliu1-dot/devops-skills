@@ -1,0 +1,34 @@
+From: security@bank0famerica.com
+To: victim@example.com
+Subject: URGENT: Your account will be suspended - Verify Now!
+Date: Mon, 15 Jan 2024 10:30:00 +0000
+Message-ID: <20240115103000.ABC123@mailserver.com>
+Reply-To: support@secure-verify.net
+Return-Path: bounce@malicious-server.xyz
+
+Dear Valued Customer,
+
+We have detected unusual activity on your account. Your account will be suspended within 24 hours unless you verify your identity immediately.
+
+To prevent account closure, please click the link below to confirm your password and security questions:
+
+https://192.168.1.100/verify/account?id=customer@bankofamerica.com
+
+If you do not verify your account within 24 hours, you will lose access to all your funds.
+
+Act now to secure your account!
+
+Important: This is an automated security alert. Do not reply to this email.
+
+Click here to verify: http://bit.ly/secure-bank-verify
+
+Best regards,
+Bank Security Team
+
+Attachment: Account_Details.pdf.exe
+Content-Type: application/octet-stream; name="Account_Details.pdf.exe"
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename="Account_Details.pdf.exe"
+
+TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAEAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
