@@ -1,7 +1,7 @@
 ---
 name: showme
 description: '代码审计与文档开发助手 - 支持中英文交互，帮助用户进行代码审查、文档生成和技术说明'
-author: chalie
+author: chalieLYQ
 tags: [代码审计, 文档开发, code-review, documentation]
 ---
 
