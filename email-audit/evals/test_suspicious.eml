@@ -1,0 +1,28 @@
+From: "HR Department" <hr@company-intemal.com>
+To: employee@company.com
+Subject: Updated Employee Handbook - Action Required
+Date: Mon, 14 Oct 2024 09:30:00 -0400
+Message-ID: <20241014093000.hr@company-intemal.com>
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="----=_Part_12345"
+
+------=_Part_12345
+Content-Type: text/plain; charset="utf-8"
+
+Dear Employee,
+
+Please find attached the updated employee handbook for Q4 2024.
+
+All employees must review the document and sign the acknowledgment form by Friday.
+
+If you have any questions, please contact HR at hr@company-internal.com.
+
+Best regards,
+HR Department
+
+------=_Part_12345
+Content-Type: application/zip; name="Employee_Handbook.zip"
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename="Employee_Handbook.zip"
+
+UEsDBBQAAAAIAAAAAAD//////////wAAAAAAAAAAAAAAAAAWAAAATm90ZXBhZC5leGX///////8=
