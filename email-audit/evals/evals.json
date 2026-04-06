@@ -1,0 +1,104 @@
+{
+  "skill_name": "email-audit",
+  "evals": [
+    {
+      "id": 1,
+      "name": "phishing-detection",
+      "prompt": "Please audit the email file at D:/skillsMN/.claude/skills/email-audit/evals/test_phishing.eml and generate a security audit report. This email looks suspicious and I need to know if it's a phishing attempt.",
+      "expected_output": "A comprehensive audit report identifying multiple phishing indicators including: urgency tactics, credential harvesting, IP address URL, header spoofing (From vs Reply-To mismatch), and dangerous attachment (.exe). Risk level should be HIGH or CRITICAL.",
+      "files": ["evals/test_phishing.eml"],
+      "assertions": [
+        {
+          "name": "detects_urgency_tactics",
+          "description": "Identifies urgency language in the email (24 hours, account suspended, act now)",
+          "type": "contains",
+          "expected": ["urgency", "24 hours", "suspended", "act now"]
+        },
+        {
+          "name": "detects_credential_request",
+          "description": "Identifies request for password/credentials",
+          "type": "contains",
+          "expected": ["credential", "password", "verify"]
+        },
+        {
+          "name": "detects_ip_address_url",
+          "description": "Identifies IP address in URL instead of domain",
+          "type": "contains",
+          "expected": ["IP address", "192.168.1.100"]
+        },
+        {
+          "name": "detects_header_spoofing",
+          "description": "Identifies mismatch between From and Reply-To domains",
+          "type": "contains",
+          "expected": ["spoofing", "Reply-To", "From"]
+        },
+        {
+          "name": "detects_dangerous_attachment",
+          "description": "Identifies .exe attachment as dangerous",
+          "type": "contains",
+          "expected": ["dangerous", "executable", ".exe"]
+        },
+        {
+          "name": "generates_high_risk_score",
+          "description": "Risk score should be HIGH or CRITICAL",
+          "type": "contains",
+          "expected": ["HIGH", "CRITICAL"]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "domain-impersonation",
+      "prompt": "Analyze the email at D:/skillsMN/.claude/skills/email-audit/evals/test_suspicious.eml for security threats. The domain looks slightly off - can you check if this is legitimate?",
+      "expected_output": "An audit report identifying domain impersonation (company-intemal.com vs company-internal.com), potential typosquatting, and suspicious attachment patterns.",
+      "files": ["evals/test_suspicious.eml"],
+      "assertions": [
+        {
+          "name": "detects_domain_anomaly",
+          "description": "Identifies unusual or suspicious domain patterns",
+          "type": "contains",
+          "expected": ["domain", "suspicious"]
+        },
+        {
+          "name": "detects_attachment",
+          "description": "Identifies and analyzes the attachment",
+          "type": "contains",
+          "expected": ["attachment", "zip"]
+        },
+        {
+          "name": "provides_recommendations",
+          "description": "Provides actionable security recommendations",
+          "type": "contains",
+          "expected": ["recommendation", "verify", "caution"]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "legitimate-email",
+      "prompt": "Please audit the email at D:/skillsMN/.claude/skills/email-audit/evals/test_legitimate.eml and generate a security report.",
+      "expected_output": "An audit report showing low risk score with minimal or no security findings. This is a legitimate business email.",
+      "files": ["evals/test_legitimate.eml"],
+      "assertions": [
+        {
+          "name": "low_risk_score",
+          "description": "Risk level should be LOW for legitimate email",
+          "type": "contains",
+          "expected": ["LOW"]
+        },
+        {
+          "name": "minimal_findings",
+          "description": "Should have few or no critical findings",
+          "type": "contains",
+          "expected": ["No critical", "Low", "minimal"]
+        },
+        {
+          "name": "generates_report",
+          "description": "Successfully generates an audit report",
+          "type": "contains",
+          "expected": ["audit", "report", "email"]
+        }
+      ]
+    }
+  ]
+}
