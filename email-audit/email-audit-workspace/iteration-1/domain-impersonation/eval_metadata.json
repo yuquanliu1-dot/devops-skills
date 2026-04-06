@@ -1,0 +1,22 @@
+{
+  "eval_id": 2,
+  "eval_name": "domain-impersonation",
+  "prompt": "Analyze the email at D:/skillsMN/.claude/skills/email-audit/evals/test_suspicious.eml for security threats. The domain looks slightly off - can you check if this is legitimate?",
+  "assertions": [
+    {
+      "name": "detects_domain_anomaly",
+      "description": "Identifies unusual or suspicious domain patterns",
+      "expected": ["domain", "suspicious"]
+    },
+    {
+      "name": "detects_attachment",
+      "description": "Identifies and analyzes the attachment",
+      "expected": ["attachment", "zip"]
+    },
+    {
+      "name": "provides_recommendations",
+      "description": "Provides actionable security recommendations",
+      "expected": ["recommendation", "verify", "caution"]
+    }
+  ]
+}
