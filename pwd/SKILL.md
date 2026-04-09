@@ -3,7 +3,7 @@ name: pwd
 description: Print the current working directory
 version: 1.0.0
 author: Claude
-tags: [utility, filesystem, navigation]
+tags: [pwd, utility, filesystem, navigation]
 ---
 
 # pwd - Print Working Directory
