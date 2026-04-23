@@ -3,6 +3,7 @@ name: email-audit
 description: 
   Email Security Audit Skill - Analyzes .eml email files for security threats including phishing, malicious links, suspicious attachments, and social engineering attempts. Use this skill whenever the user mentions email audit, phishing detection, email security analysis, analyzing suspicious emails, checking email for malware, or auditing .eml files. Also trigger when users ask to analyze email headers, detect email spoofing, or generate email security reports.
 tags: [security]
+author: charlie
 ---
 
 # Email Security Audit Skill (邮件安全审计)
