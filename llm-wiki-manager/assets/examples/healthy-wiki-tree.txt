@@ -1,0 +1,77 @@
+A mature LLM wiki — ~50 sources, food-and-nutrition topic, 8 months old.
+
+The shape is what matters: most pages have 2-5 inbound links, the index reflects every page, the log has hundreds of entries, contradictions are flagged on concept pages, the schema has been touched 4-5 times since bootstrap.
+
+.
+├── CLAUDE.md                                # 80 lines, ~5 revisions since bootstrap
+├── README.md                                # human-facing overview
+├── raw/                                     # 53 sources
+│   ├── 2008-pollan-in-defense-of-food.pdf
+│   ├── 2014-teicholz-big-fat-surprise.pdf
+│   ├── 2019-marion-nestle-food-politics.pdf
+│   ├── 2024-09-nyt-upf-review.md
+│   ├── 2024-10-nature-saturated-fat-meta.pdf
+│   ├── 2024-11-podcast-attia-on-protein.txt
+│   ├── 2025-01-keys-1980-seven-countries-reanalysis.pdf
+│   ├── ...
+│   └── assets/                              # images that some sources reference
+│       └── ...
+└── wiki/
+    ├── CLAUDE.md.bak                        # NOT here — schema lives at root
+    ├── index.md                             # 200+ lines, all pages catalogued
+    ├── log.md                               # 300+ entries, append-only
+    ├── sources/                             # 1 page per ingested source
+    │   ├── pollan-2008-eat-food.md
+    │   ├── teicholz-2014-big-fat-surprise.md
+    │   ├── nestle-2019-food-politics.md
+    │   ├── nyt-2024-09-upf.md
+    │   ├── nature-2024-10-saturated-fat.md
+    │   ├── attia-2024-protein.md
+    │   └── ...                              # 53 total
+    ├── entities/
+    │   ├── michael-pollan.md                # 4 sources, links from 6 pages
+    │   ├── marion-nestle.md                 # 5 sources, links from 8 pages
+    │   ├── ancel-keys.md                    # 3 sources, links from concept pages
+    │   ├── usda.md                          # 7 sources, links from 12 pages
+    │   ├── peter-attia.md                   # 2 sources
+    │   ├── who-fao.md                       # 4 sources
+    │   └── ...                              # ~15 total
+    ├── concepts/
+    │   ├── nutritionism.md                  # 8 sources, has Disputes section
+    │   ├── ultra-processed-foods.md         # 6 sources, has Disputes section
+    │   ├── western-diet.md                  # 4 sources
+    │   ├── saturated-fat-controversy.md     # 5 sources, big Disputes section
+    │   ├── seed-oils.md                     # 4 sources, contested
+    │   ├── insulin-resistance.md            # 5 sources
+    │   ├── glycemic-index.md                # 3 sources
+    │   ├── carnivore-vs-mediterranean.md    # cross-cutting concept
+    │   └── ...                              # ~20 total
+    └── notes/
+        ├── 2025-02-supplement-summary.md    # filed-back query answer
+        ├── 2025-03-pollan-vs-attia.md       # comparison page
+        ├── 2025-04-open-questions.md        # gaps the wiki has identified
+        ├── 2025-05-reading-list-2025.md     # what to read next
+        └── ...                              # ~12 total
+    └── reports/                             # auto-generated, dated
+        ├── lint-2025-01-15.md               # monthly lint cadence
+        ├── lint-2025-02-12.md
+        ├── lint-2025-03-10.md
+        ├── lint-2025-04-08.md
+        ├── lint-2025-05-06.md
+        └── ...                              # ~8 total — longitudinal health record
+
+Notable shape properties:
+
+- Each entity has 2-7 inbound links from concepts and source summaries
+- Each concept has 3-10 inbound links from sources, entities, and other concepts
+- The "Disputes" sections on saturated-fat-controversy.md and ultra-processed-foods.md flag real contradictions between source-summary pages
+- 4-5 schema updates over 8 months — each one captured a convention that emerged organically
+- Lint passes ran ~once per month, each catching 1-3 broken links and 0-2 orphan candidates
+- About 10% of query answers got filed back as notes/ pages
+
+What's NOT in this tree:
+
+- A "tag taxonomy" — tags are used loosely in frontmatter, never centralized
+- An "outline" or "TOC" page — the index does that work
+- Per-source inline images — source images stay in raw/assets/ unless they're worth surfacing
+- Generated TOCs or chrome — Markdown editors handle that
