@@ -1,0 +1,113 @@
+{
+  "template_type": "state-machine",
+  "style": 1,
+  "width": 960,
+  "height": 620,
+  "title": "Order State Machine",
+  "subtitle": "E-commerce order lifecycle",
+  "nodes": [
+    {
+      "id": "created",
+      "kind": "stadium",
+      "x": 60,
+      "y": 200,
+      "width": 150,
+      "height": 50,
+      "label": "Created"
+    },
+    {
+      "id": "paid",
+      "kind": "rect",
+      "x": 280,
+      "y": 200,
+      "width": 150,
+      "height": 55,
+      "label": "Paid"
+    },
+    {
+      "id": "shipped",
+      "kind": "rect",
+      "x": 500,
+      "y": 200,
+      "width": 150,
+      "height": 55,
+      "label": "Shipped"
+    },
+    {
+      "id": "delivered",
+      "kind": "rect",
+      "x": 720,
+      "y": 200,
+      "width": 150,
+      "height": 55,
+      "label": "Delivered"
+    },
+    {
+      "id": "cancelled",
+      "kind": "rect",
+      "x": 280,
+      "y": 380,
+      "width": 150,
+      "height": 55,
+      "label": "Cancelled"
+    },
+    {
+      "id": "returned",
+      "kind": "rect",
+      "x": 620,
+      "y": 380,
+      "width": 150,
+      "height": 55,
+      "label": "Returned"
+    }
+  ],
+  "arrows": [
+    {
+      "source": "created",
+      "target": "paid",
+      "source_port": "right",
+      "target_port": "left",
+      "flow": "control",
+      "label": "pay"
+    },
+    {
+      "source": "paid",
+      "target": "shipped",
+      "source_port": "right",
+      "target_port": "left",
+      "flow": "control",
+      "label": "ship"
+    },
+    {
+      "source": "shipped",
+      "target": "delivered",
+      "source_port": "right",
+      "target_port": "left",
+      "flow": "control",
+      "label": "deliver"
+    },
+    {
+      "source": "created",
+      "target": "cancelled",
+      "source_port": "bottom",
+      "target_port": "top",
+      "flow": "feedback",
+      "label": "cancel"
+    },
+    {
+      "source": "paid",
+      "target": "cancelled",
+      "source_port": "bottom",
+      "target_port": "right",
+      "flow": "feedback"
+    },
+    {
+      "source": "delivered",
+      "target": "returned",
+      "source_port": "bottom",
+      "target_port": "right",
+      "flow": "feedback",
+      "label": "return"
+    }
+  ]
+}
