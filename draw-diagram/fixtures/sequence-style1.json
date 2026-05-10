@@ -1,0 +1,97 @@
+{
+  "template_type": "sequence",
+  "style": 1,
+  "width": 960,
+  "height": 700,
+  "title": "API Request Sequence",
+  "subtitle": "Service interaction timeline",
+  "nodes": [
+    {
+      "id": "client",
+      "kind": "rect",
+      "x": 60,
+      "y": 120,
+      "width": 130,
+      "height": 50,
+      "label": "Client"
+    },
+    {
+      "id": "gateway",
+      "kind": "double_rect",
+      "x": 260,
+      "y": 120,
+      "width": 150,
+      "height": 60,
+      "label": "Gateway"
+    },
+    {
+      "id": "auth_svc",
+      "kind": "rect",
+      "x": 490,
+      "y": 120,
+      "width": 130,
+      "height": 50,
+      "label": "Auth Service"
+    },
+    {
+      "id": "backend",
+      "kind": "rect",
+      "x": 700,
+      "y": 120,
+      "width": 130,
+      "height": 50,
+      "label": "Backend"
+    },
+    {
+      "id": "db",
+      "kind": "cylinder",
+      "x": 720,
+      "y": 350,
+      "width": 130,
+      "height": 90,
+      "label": "Database"
+    }
+  ],
+  "arrows": [
+    {
+      "source": "client",
+      "target": "gateway",
+      "source_port": "right",
+      "target_port": "left",
+      "flow": "control",
+      "label": "request"
+    },
+    {
+      "source": "gateway",
+      "target": "auth_svc",
+      "source_port": "right",
+      "target_port": "left",
+      "flow": "control",
+      "label": "verify"
+    },
+    {
+      "source": "gateway",
+      "target": "backend",
+      "source_port": "right",
+      "target_port": "left",
+      "flow": "read",
+      "label": "forward"
+    },
+    {
+      "source": "backend",
+      "target": "db",
+      "source_port": "bottom",
+      "target_port": "top",
+      "flow": "read"
+    },
+    {
+      "source": "auth_svc",
+      "target": "gateway",
+      "source_port": "bottom",
+      "target_port": "bottom",
+      "flow": "feedback",
+      "label": "token",
+      "dashed": true
+    }
+  ]
+}
