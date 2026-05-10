@@ -1,0 +1,110 @@
+{
+  "template_type": "flowchart",
+  "style": 1,
+  "width": 960,
+  "height": 700,
+  "title": "User Registration Flow",
+  "subtitle": "Decision flowchart",
+  "nodes": [
+    {
+      "id": "start",
+      "kind": "stadium",
+      "x": 380,
+      "y": 120,
+      "width": 160,
+      "height": 50,
+      "label": "Start"
+    },
+    {
+      "id": "input",
+      "kind": "parallelogram",
+      "x": 370,
+      "y": 220,
+      "width": 180,
+      "height": 55,
+      "label": "User Input"
+    },
+    {
+      "id": "valid",
+      "kind": "diamond",
+      "x": 380,
+      "y": 330,
+      "width": 170,
+      "height": 100,
+      "label": "Valid?"
+    },
+    {
+      "id": "create",
+      "kind": "rect",
+      "x": 380,
+      "y": 490,
+      "width": 160,
+      "height": 55,
+      "label": "Create Account"
+    },
+    {
+      "id": "error",
+      "kind": "rect",
+      "x": 650,
+      "y": 340,
+      "width": 160,
+      "height": 55,
+      "label": "Show Error"
+    },
+    {
+      "id": "end",
+      "kind": "stadium",
+      "x": 380,
+      "y": 600,
+      "width": 160,
+      "height": 50,
+      "label": "End"
+    }
+  ],
+  "arrows": [
+    {
+      "source": "start",
+      "target": "input",
+      "source_port": "bottom",
+      "target_port": "top",
+      "flow": "control"
+    },
+    {
+      "source": "input",
+      "target": "valid",
+      "source_port": "bottom",
+      "target_port": "top",
+      "flow": "control"
+    },
+    {
+      "source": "valid",
+      "target": "create",
+      "source_port": "bottom",
+      "target_port": "top",
+      "flow": "control",
+      "label": "Yes"
+    },
+    {
+      "source": "valid",
+      "target": "error",
+      "source_port": "right",
+      "target_port": "left",
+      "flow": "feedback",
+      "label": "No"
+    },
+    {
+      "source": "error",
+      "target": "input",
+      "source_port": "top",
+      "target_port": "right",
+      "flow": "feedback"
+    },
+    {
+      "source": "create",
+      "target": "end",
+      "source_port": "bottom",
+      "target_port": "top",
+      "flow": "control"
+    }
+  ]
+}
