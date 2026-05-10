@@ -1,0 +1,132 @@
+{
+  "template_type": "class",
+  "style": 1,
+  "width": 960,
+  "height": 700,
+  "title": "Domain Model",
+  "subtitle": "Class hierarchy diagram",
+  "nodes": [
+    {
+      "id": "base",
+      "kind": "rect",
+      "x": 360,
+      "y": 80,
+      "width": 200,
+      "height": 80,
+      "label": "BaseEntity",
+      "sublabel": "id, createdAt"
+    },
+    {
+      "id": "user_cls",
+      "kind": "rect",
+      "x": 120,
+      "y": 250,
+      "width": 200,
+      "height": 80,
+      "label": "User",
+      "sublabel": "name, email"
+    },
+    {
+      "id": "order",
+      "kind": "rect",
+      "x": 360,
+      "y": 250,
+      "width": 200,
+      "height": 80,
+      "label": "Order",
+      "sublabel": "total, status"
+    },
+    {
+      "id": "product",
+      "kind": "rect",
+      "x": 600,
+      "y": 250,
+      "width": 200,
+      "height": 80,
+      "label": "Product",
+      "sublabel": "name, price"
+    },
+    {
+      "id": "addr",
+      "kind": "rect",
+      "x": 120,
+      "y": 430,
+      "width": 200,
+      "height": 80,
+      "label": "Address",
+      "sublabel": "street, city"
+    },
+    {
+      "id": "item",
+      "kind": "rect",
+      "x": 600,
+      "y": 430,
+      "width": 200,
+      "height": 80,
+      "label": "OrderItem",
+      "sublabel": "qty, price"
+    },
+    {
+      "id": "cat",
+      "kind": "rect",
+      "x": 600,
+      "y": 580,
+      "width": 200,
+      "height": 60,
+      "label": "Category",
+      "sublabel": "name"
+    }
+  ],
+  "arrows": [
+    {
+      "source": "user_cls",
+      "target": "base",
+      "source_port": "top",
+      "target_port": "bottom",
+      "flow": "control"
+    },
+    {
+      "source": "order",
+      "target": "base",
+      "source_port": "top",
+      "target_port": "bottom",
+      "flow": "control"
+    },
+    {
+      "source": "product",
+      "target": "base",
+      "source_port": "top",
+      "target_port": "bottom",
+      "flow": "control"
+    },
+    {
+      "source": "user_cls",
+      "target": "addr",
+      "source_port": "bottom",
+      "target_port": "top",
+      "flow": "data"
+    },
+    {
+      "source": "order",
+      "target": "item",
+      "source_port": "right",
+      "target_port": "left",
+      "flow": "data"
+    },
+    {
+      "source": "product",
+      "target": "cat",
+      "source_port": "bottom",
+      "target_port": "top",
+      "flow": "data"
+    },
+    {
+      "source": "item",
+      "target": "product",
+      "source_port": "top",
+      "target_port": "bottom",
+      "flow": "read",
+      "dashed": true
+    }
+  ]
+}
