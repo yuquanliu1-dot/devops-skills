@@ -1,0 +1,180 @@
+{
+  "template_type": "network-topology",
+  "style": 1,
+  "width": 960,
+  "height": 620,
+  "title": "Network Topology",
+  "subtitle": "Datacenter network layout",
+  "containers": [
+    {
+      "x": 36,
+      "y": 96,
+      "width": 888,
+      "height": 160,
+      "label": "PUBLIC ZONE"
+    },
+    {
+      "x": 36,
+      "y": 290,
+      "width": 888,
+      "height": 160,
+      "label": "PRIVATE ZONE"
+    },
+    {
+      "x": 36,
+      "y": 484,
+      "width": 888,
+      "height": 110,
+      "label": "DATA ZONE"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "cdn",
+      "kind": "rect",
+      "x": 100,
+      "y": 140,
+      "width": 140,
+      "height": 50,
+      "label": "CDN"
+    },
+    {
+      "id": "lb",
+      "kind": "hexagon",
+      "x": 350,
+      "y": 130,
+      "width": 160,
+      "height": 70,
+      "label": "Load Balancer"
+    },
+    {
+      "id": "fw",
+      "kind": "rect",
+      "x": 620,
+      "y": 140,
+      "width": 140,
+      "height": 50,
+      "label": "Firewall"
+    },
+    {
+      "id": "web1",
+      "kind": "rect",
+      "x": 100,
+      "y": 330,
+      "width": 140,
+      "height": 50,
+      "label": "Web Server 1"
+    },
+    {
+      "id": "web2",
+      "kind": "rect",
+      "x": 350,
+      "y": 330,
+      "width": 140,
+      "height": 50,
+      "label": "Web Server 2"
+    },
+    {
+      "id": "app",
+      "kind": "double_rect",
+      "x": 600,
+      "y": 325,
+      "width": 160,
+      "height": 60,
+      "label": "App Server"
+    },
+    {
+      "id": "db1",
+      "kind": "cylinder",
+      "x": 150,
+      "y": 510,
+      "width": 130,
+      "height": 80,
+      "label": "DB Primary"
+    },
+    {
+      "id": "db2",
+      "kind": "cylinder",
+      "x": 420,
+      "y": 510,
+      "width": 130,
+      "height": 80,
+      "label": "DB Replica"
+    },
+    {
+      "id": "cache",
+      "kind": "rect",
+      "x": 700,
+      "y": 520,
+      "width": 130,
+      "height": 50,
+      "label": "Redis"
+    }
+  ],
+  "arrows": [
+    {
+      "source": "cdn",
+      "target": "lb",
+      "source_port": "right",
+      "target_port": "left",
+      "flow": "read"
+    },
+    {
+      "source": "lb",
+      "target": "fw",
+      "source_port": "right",
+      "target_port": "left",
+      "flow": "control"
+    },
+    {
+      "source": "fw",
+      "target": "web1",
+      "source_port": "bottom",
+      "target_port": "top",
+      "flow": "control"
+    },
+    {
+      "source": "fw",
+      "target": "web2",
+      "source_port": "bottom",
+      "target_port": "top",
+      "flow": "control"
+    },
+    {
+      "source": "fw",
+      "target": "app",
+      "source_port": "bottom",
+      "target_port": "top",
+      "flow": "control"
+    },
+    {
+      "source": "web1",
+      "target": "db1",
+      "source_port": "bottom",
+      "target_port": "top",
+      "flow": "data"
+    },
+    {
+      "source": "web2",
+      "target": "db2",
+      "source_port": "bottom",
+      "target_port": "top",
+      "flow": "read"
+    },
+    {
+      "source": "app",
+      "target": "cache",
+      "source_port": "bottom",
+      "target_port": "top",
+      "flow": "read"
+    },
+    {
+      "source": "db1",
+      "target": "db2",
+      "source_port": "right",
+      "target_port": "left",
+      "flow": "async",
+      "dashed": true
+    }
+  ]
+}
