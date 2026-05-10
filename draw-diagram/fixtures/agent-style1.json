@@ -1,0 +1,181 @@
+{
+  "template_type": "agent",
+  "style": 1,
+  "width": 960,
+  "height": 700,
+  "title": "AI Agent Architecture",
+  "subtitle": "Tool-use agent with memory",
+  "containers": [
+    {
+      "x": 36,
+      "y": 96,
+      "width": 888,
+      "height": 220,
+      "label": "AGENT CORE"
+    },
+    {
+      "x": 36,
+      "y": 350,
+      "width": 888,
+      "height": 130,
+      "label": "TOOLS"
+    },
+    {
+      "x": 36,
+      "y": 510,
+      "width": 888,
+      "height": 120,
+      "label": "MEMORY"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "llm",
+      "kind": "hexagon",
+      "x": 350,
+      "y": 140,
+      "width": 180,
+      "height": 80,
+      "label": "LLM"
+    },
+    {
+      "id": "planner",
+      "kind": "rect",
+      "x": 120,
+      "y": 200,
+      "width": 150,
+      "height": 50,
+      "label": "Planner"
+    },
+    {
+      "id": "executor",
+      "kind": "rect",
+      "x": 620,
+      "y": 200,
+      "width": 150,
+      "height": 50,
+      "label": "Executor"
+    },
+    {
+      "id": "search",
+      "kind": "rect",
+      "x": 80,
+      "y": 380,
+      "width": 150,
+      "height": 50,
+      "label": "Web Search"
+    },
+    {
+      "id": "code",
+      "kind": "rect",
+      "x": 300,
+      "y": 380,
+      "width": 150,
+      "height": 50,
+      "label": "Code Exec"
+    },
+    {
+      "id": "api_tool",
+      "kind": "rect",
+      "x": 520,
+      "y": 380,
+      "width": 150,
+      "height": 50,
+      "label": "API Call"
+    },
+    {
+      "id": "file",
+      "kind": "rect",
+      "x": 740,
+      "y": 380,
+      "width": 130,
+      "height": 50,
+      "label": "File I/O"
+    },
+    {
+      "id": "stm",
+      "kind": "rect",
+      "x": 120,
+      "y": 550,
+      "width": 150,
+      "height": 50,
+      "label": "Working Mem"
+    },
+    {
+      "id": "ltm",
+      "kind": "cylinder",
+      "x": 400,
+      "y": 540,
+      "width": 150,
+      "height": 80,
+      "label": "Long-term"
+    },
+    {
+      "id": "ctx",
+      "kind": "rect",
+      "x": 660,
+      "y": 550,
+      "width": 150,
+      "height": 50,
+      "label": "Context"
+    }
+  ],
+  "arrows": [
+    {
+      "source": "planner",
+      "target": "llm",
+      "source_port": "right",
+      "target_port": "left",
+      "flow": "control"
+    },
+    {
+      "source": "llm",
+      "target": "executor",
+      "source_port": "right",
+      "target_port": "left",
+      "flow": "control"
+    },
+    {
+      "source": "executor",
+      "target": "search",
+      "source_port": "bottom",
+      "target_port": "top",
+      "flow": "control"
+    },
+    {
+      "source": "executor",
+      "target": "code",
+      "source_port": "bottom",
+      "target_port": "top",
+      "flow": "control"
+    },
+    {
+      "source": "executor",
+      "target": "api_tool",
+      "source_port": "bottom",
+      "target_port": "top",
+      "flow": "control"
+    },
+    {
+      "source": "llm",
+      "target": "stm",
+      "source_port": "bottom",
+      "target_port": "top",
+      "flow": "read"
+    },
+    {
+      "source": "llm",
+      "target": "ltm",
+      "source_port": "bottom",
+      "target_port": "top",
+      "flow": "data"
+    },
+    {
+      "source": "executor",
+      "target": "ctx",
+      "source_port": "bottom",
+      "target_port": "top",
+      "flow": "write"
+    }
+  ]
+}
