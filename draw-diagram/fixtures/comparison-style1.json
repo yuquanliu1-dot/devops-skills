@@ -1,0 +1,106 @@
+{
+  "template_type": "comparison",
+  "style": 1,
+  "width": 960,
+  "height": 620,
+  "title": "REST vs GraphQL",
+  "subtitle": "API paradigm comparison",
+  "containers": [
+    {
+      "x": 40,
+      "y": 110,
+      "width": 410,
+      "height": 400,
+      "label": "REST API"
+    },
+    {
+      "x": 510,
+      "y": 110,
+      "width": 410,
+      "height": 400,
+      "label": "GraphQL"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "r1",
+      "kind": "rect",
+      "x": 100,
+      "y": 170,
+      "width": 280,
+      "height": 50,
+      "label": "Multiple Endpoints"
+    },
+    {
+      "id": "r2",
+      "kind": "rect",
+      "x": 100,
+      "y": 260,
+      "width": 280,
+      "height": 50,
+      "label": "Fixed Data Structure"
+    },
+    {
+      "id": "r3",
+      "kind": "rect",
+      "x": 100,
+      "y": 350,
+      "width": 280,
+      "height": 50,
+      "label": "HTTP Caching"
+    },
+    {
+      "id": "g1",
+      "kind": "rect",
+      "x": 570,
+      "y": 170,
+      "width": 280,
+      "height": 50,
+      "label": "Single Endpoint"
+    },
+    {
+      "id": "g2",
+      "kind": "rect",
+      "x": 570,
+      "y": 260,
+      "width": 280,
+      "height": 50,
+      "label": "Flexible Queries"
+    },
+    {
+      "id": "g3",
+      "kind": "rect",
+      "x": 570,
+      "y": 350,
+      "width": 280,
+      "height": 50,
+      "label": "Client-side Caching"
+    }
+  ],
+  "arrows": [
+    {
+      "source": "r1",
+      "target": "g1",
+      "source_port": "right",
+      "target_port": "left",
+      "flow": "neutral",
+      "dashed": true
+    },
+    {
+      "source": "r2",
+      "target": "g2",
+      "source_port": "right",
+      "target_port": "left",
+      "flow": "neutral",
+      "dashed": true
+    },
+    {
+      "source": "r3",
+      "target": "g3",
+      "source_port": "right",
+      "target_port": "left",
+      "flow": "neutral",
+      "dashed": true
+    }
+  ]
+}
