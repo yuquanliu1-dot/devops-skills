@@ -1,0 +1,52 @@
+{
+  "template_type": "architecture",
+  "style": 5,
+  "width": 1100,
+  "height": 720,
+  "title": "Enterprise System Architecture",
+  "subtitle": "Monochrome formal style — suitable for documentation and print",
+  "containers": [
+    { "x": 36, "y": 96, "width": 1028, "height": 120, "label": "EDGE LAYER", "subtitle": "" },
+    { "x": 36, "y": 250, "width": 1028, "height": 180, "label": "APPLICATION SERVICES", "subtitle": "" },
+    { "x": 36, "y": 464, "width": 1028, "height": 130, "label": "DATA INFRASTRUCTURE", "subtitle": "" },
+    { "x": 36, "y": 624, "width": 1028, "height": 100, "label": "MONITORING", "subtitle": "" }
+  ],
+  "nodes": [
+    { "id": "clients", "kind": "rect", "x": 64, "y": 126, "width": 156, "height": 56, "label": "Client Apps", "flat": true },
+    { "id": "gateway", "kind": "double_rect", "x": 298, "y": 122, "width": 196, "height": 64, "label": "API Gateway" },
+    { "id": "auth", "kind": "rect", "x": 572, "y": 126, "width": 160, "height": 56, "label": "Auth / Policy", "flat": true },
+    { "id": "cdn", "kind": "rect", "x": 820, "y": 126, "width": 152, "height": 56, "label": "CDN / WAF", "flat": true },
+    { "id": "svc-order", "kind": "rect", "x": 76, "y": 292, "width": 176, "height": 58, "label": "Order Service", "flat": true },
+    { "id": "svc-catalog", "kind": "rect", "x": 316, "y": 292, "width": 176, "height": 58, "label": "Catalog Service", "flat": true },
+    { "id": "svc-billing", "kind": "rect", "x": 556, "y": 292, "width": 176, "height": 58, "label": "Billing Service", "flat": true },
+    { "id": "event-bus", "kind": "double_rect", "x": 800, "y": 284, "width": 168, "height": 74, "label": "Event Router" },
+    { "id": "postgres", "kind": "cylinder", "x": 96, "y": 488, "width": 148, "height": 90, "label": "PostgreSQL", "sublabel": "orders" },
+    { "id": "cache", "kind": "rect", "x": 368, "y": 496, "width": 152, "height": 64, "label": "Redis Cache", "flat": true },
+    { "id": "warehouse", "kind": "cylinder", "x": 618, "y": 488, "width": 148, "height": 90, "label": "Data Warehouse", "sublabel": "analytics" },
+    { "id": "metrics", "kind": "rect", "x": 100, "y": 660, "width": 180, "height": 44, "label": "Metrics / Traces", "flat": true }
+  ],
+  "arrows": [
+    { "source": "clients", "target": "gateway", "source_port": "right", "target_port": "left", "flow": "read" },
+    { "source": "gateway", "target": "auth", "source_port": "right", "target_port": "left", "flow": "control", "label": "verify" },
+    { "source": "gateway", "target": "cdn", "source_port": "right", "target_port": "left", "flow": "read", "label": "static", "route_points": [[514, 154], [514, 100], [800, 100], [800, 154]] },
+    { "source": "gateway", "target": "svc-order", "source_port": "bottom", "target_port": "top", "flow": "read", "label": "route", "route_points": [[396, 216], [164, 216], [164, 292]] },
+    { "source": "gateway", "target": "svc-catalog", "source_port": "bottom", "target_port": "top", "flow": "read", "route_points": [[396, 216]] },
+    { "source": "gateway", "target": "svc-billing", "source_port": "bottom", "target_port": "top", "flow": "read", "route_points": [[396, 216], [644, 216], [644, 292]] },
+    { "source": "svc-order", "target": "postgres", "source_port": "bottom", "target_port": "top", "flow": "read" },
+    { "source": "svc-catalog", "target": "cache", "source_port": "bottom", "target_port": "top", "flow": "read" },
+    { "source": "svc-billing", "target": "warehouse", "source_port": "bottom", "target_port": "top", "flow": "data" },
+    { "source": "svc-order", "target": "event-bus", "source_port": "right", "target_port": "left", "flow": "feedback", "dashed": true, "route_points": [[252, 321], [252, 268], [770, 268], [770, 321]] },
+    { "source": "svc-billing", "target": "event-bus", "source_port": "right", "target_port": "left", "flow": "feedback", "dashed": true, "route_points": [[732, 321], [776, 321]] },
+    { "source": "event-bus", "target": "metrics", "source_port": "bottom", "target_port": "left", "flow": "control", "label": "events", "route_points": [[884, 620], [80, 620], [80, 685]] }
+  ],
+  "legend": [
+    { "flow": "read", "label": "Request flow" },
+    { "flow": "control", "label": "Control / routing" },
+    { "flow": "data", "label": "Analytics path" },
+    { "flow": "feedback", "label": "Event stream" }
+  ],
+  "legend_position": "bottom-right",
+  "legend_box": true,
+  "legend_y": 606,
+  "footer": "Event-driven microservices with centralized gateway authentication"
+}
