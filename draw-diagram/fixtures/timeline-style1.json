@@ -1,0 +1,121 @@
+{
+  "template_type": "timeline",
+  "style": 1,
+  "width": 960,
+  "height": 520,
+  "title": "Project Milestones",
+  "subtitle": "2026 Q1-Q2 delivery timeline",
+  "nodes": [
+    {
+      "id": "m1",
+      "kind": "rect",
+      "x": 60,
+      "y": 180,
+      "width": 150,
+      "height": 55,
+      "label": "Kickoff",
+      "sublabel": "Jan 15"
+    },
+    {
+      "id": "m2",
+      "kind": "rect",
+      "x": 270,
+      "y": 180,
+      "width": 150,
+      "height": 55,
+      "label": "Alpha",
+      "sublabel": "Feb 28"
+    },
+    {
+      "id": "m3",
+      "kind": "rect",
+      "x": 480,
+      "y": 180,
+      "width": 150,
+      "height": 55,
+      "label": "Beta",
+      "sublabel": "Apr 1"
+    },
+    {
+      "id": "m4",
+      "kind": "rect",
+      "x": 690,
+      "y": 180,
+      "width": 150,
+      "height": 55,
+      "label": "Launch",
+      "sublabel": "May 30"
+    },
+    {
+      "id": "team",
+      "kind": "rect",
+      "x": 60,
+      "y": 340,
+      "width": 120,
+      "height": 50,
+      "label": "Team A"
+    },
+    {
+      "id": "infra",
+      "kind": "rect",
+      "x": 270,
+      "y": 340,
+      "width": 120,
+      "height": 50,
+      "label": "DevOps"
+    },
+    {
+      "id": "qa",
+      "kind": "rect",
+      "x": 480,
+      "y": 340,
+      "width": 120,
+      "height": 50,
+      "label": "QA Team"
+    }
+  ],
+  "arrows": [
+    {
+      "source": "m1",
+      "target": "m2",
+      "source_port": "right",
+      "target_port": "left",
+      "flow": "control"
+    },
+    {
+      "source": "m2",
+      "target": "m3",
+      "source_port": "right",
+      "target_port": "left",
+      "flow": "control"
+    },
+    {
+      "source": "m3",
+      "target": "m4",
+      "source_port": "right",
+      "target_port": "left",
+      "flow": "control"
+    },
+    {
+      "source": "team",
+      "target": "m1",
+      "source_port": "top",
+      "target_port": "bottom",
+      "flow": "read"
+    },
+    {
+      "source": "infra",
+      "target": "m2",
+      "source_port": "top",
+      "target_port": "bottom",
+      "flow": "read"
+    },
+    {
+      "source": "qa",
+      "target": "m3",
+      "source_port": "top",
+      "target_port": "bottom",
+      "flow": "read"
+    }
+  ]
+}
