@@ -1,0 +1,120 @@
+{
+  "template_type": "er-diagram",
+  "style": 1,
+  "width": 960,
+  "height": 680,
+  "title": "E-Commerce ER Diagram",
+  "subtitle": "Entity relationship model",
+  "nodes": [
+    {
+      "id": "users",
+      "kind": "rect",
+      "x": 100,
+      "y": 150,
+      "width": 180,
+      "height": 100,
+      "label": "Users",
+      "sublabel": "id, name, email"
+    },
+    {
+      "id": "orders",
+      "kind": "rect",
+      "x": 400,
+      "y": 150,
+      "width": 180,
+      "height": 100,
+      "label": "Orders",
+      "sublabel": "id, total, status"
+    },
+    {
+      "id": "products",
+      "kind": "rect",
+      "x": 700,
+      "y": 150,
+      "width": 180,
+      "height": 100,
+      "label": "Products",
+      "sublabel": "id, name, price"
+    },
+    {
+      "id": "items",
+      "kind": "rect",
+      "x": 400,
+      "y": 380,
+      "width": 180,
+      "height": 100,
+      "label": "Order Items",
+      "sublabel": "qty, unit_price"
+    },
+    {
+      "id": "reviews",
+      "kind": "rect",
+      "x": 100,
+      "y": 380,
+      "width": 180,
+      "height": 100,
+      "label": "Reviews",
+      "sublabel": "rating, comment"
+    },
+    {
+      "id": "cats",
+      "kind": "rect",
+      "x": 700,
+      "y": 380,
+      "width": 180,
+      "height": 80,
+      "label": "Categories",
+      "sublabel": "name, slug"
+    }
+  ],
+  "arrows": [
+    {
+      "source": "users",
+      "target": "orders",
+      "source_port": "right",
+      "target_port": "left",
+      "flow": "control",
+      "label": "1:N"
+    },
+    {
+      "source": "orders",
+      "target": "items",
+      "source_port": "bottom",
+      "target_port": "top",
+      "flow": "data",
+      "label": "1:N"
+    },
+    {
+      "source": "products",
+      "target": "items",
+      "source_port": "bottom",
+      "target_port": "right",
+      "flow": "read",
+      "label": "1:N"
+    },
+    {
+      "source": "users",
+      "target": "reviews",
+      "source_port": "bottom",
+      "target_port": "top",
+      "flow": "write",
+      "label": "1:N"
+    },
+    {
+      "source": "products",
+      "target": "reviews",
+      "source_port": "bottom",
+      "target_port": "right",
+      "flow": "read",
+      "label": "1:N"
+    },
+    {
+      "source": "cats",
+      "target": "products",
+      "source_port": "top",
+      "target_port": "bottom",
+      "flow": "control",
+      "label": "1:N"
+    }
+  ]
+}
