@@ -1,0 +1,133 @@
+{
+  "template_type": "mind-map",
+  "style": 1,
+  "width": 960,
+  "height": 620,
+  "title": "System Design",
+  "subtitle": "Core components mind map",
+  "nodes": [
+    {
+      "id": "core",
+      "kind": "hexagon",
+      "x": 380,
+      "y": 250,
+      "width": 180,
+      "height": 80,
+      "label": "System"
+    },
+    {
+      "id": "fe",
+      "kind": "rect",
+      "x": 80,
+      "y": 100,
+      "width": 140,
+      "height": 50,
+      "label": "Frontend"
+    },
+    {
+      "id": "be",
+      "kind": "rect",
+      "x": 80,
+      "y": 400,
+      "width": 140,
+      "height": 50,
+      "label": "Backend"
+    },
+    {
+      "id": "db",
+      "kind": "cylinder",
+      "x": 80,
+      "y": 500,
+      "width": 130,
+      "height": 80,
+      "label": "Database"
+    },
+    {
+      "id": "auth",
+      "kind": "rect",
+      "x": 380,
+      "y": 80,
+      "width": 140,
+      "height": 50,
+      "label": "Auth"
+    },
+    {
+      "id": "cache",
+      "kind": "rect",
+      "x": 700,
+      "y": 100,
+      "width": 140,
+      "height": 50,
+      "label": "Cache"
+    },
+    {
+      "id": "mq",
+      "kind": "rect",
+      "x": 700,
+      "y": 400,
+      "width": 140,
+      "height": 50,
+      "label": "Queue"
+    },
+    {
+      "id": "monitor",
+      "kind": "rect",
+      "x": 700,
+      "y": 500,
+      "width": 140,
+      "height": 50,
+      "label": "Monitoring"
+    }
+  ],
+  "arrows": [
+    {
+      "source": "core",
+      "target": "fe",
+      "source_port": "left",
+      "target_port": "right",
+      "flow": "control"
+    },
+    {
+      "source": "core",
+      "target": "be",
+      "source_port": "left",
+      "target_port": "right",
+      "flow": "control"
+    },
+    {
+      "source": "be",
+      "target": "db",
+      "source_port": "bottom",
+      "target_port": "top",
+      "flow": "data"
+    },
+    {
+      "source": "core",
+      "target": "auth",
+      "source_port": "top",
+      "target_port": "bottom",
+      "flow": "control"
+    },
+    {
+      "source": "core",
+      "target": "cache",
+      "source_port": "right",
+      "target_port": "left",
+      "flow": "read"
+    },
+    {
+      "source": "core",
+      "target": "mq",
+      "source_port": "right",
+      "target_port": "left",
+      "flow": "write"
+    },
+    {
+      "source": "mq",
+      "target": "monitor",
+      "source_port": "bottom",
+      "target_port": "top",
+      "flow": "data"
+    }
+  ]
+}
