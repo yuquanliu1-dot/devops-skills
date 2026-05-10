@@ -1,0 +1,117 @@
+{
+  "template_type": "data-flow",
+  "style": 1,
+  "width": 960,
+  "height": 600,
+  "title": "Data Pipeline",
+  "subtitle": "ETL data flow diagram",
+  "nodes": [
+    {
+      "id": "src",
+      "kind": "cylinder",
+      "x": 80,
+      "y": 200,
+      "width": 140,
+      "height": 90,
+      "label": "Source DB"
+    },
+    {
+      "id": "extract",
+      "kind": "rect",
+      "x": 300,
+      "y": 210,
+      "width": 150,
+      "height": 60,
+      "label": "Extract"
+    },
+    {
+      "id": "transform",
+      "kind": "rect",
+      "x": 530,
+      "y": 210,
+      "width": 150,
+      "height": 60,
+      "label": "Transform"
+    },
+    {
+      "id": "load",
+      "kind": "rect",
+      "x": 740,
+      "y": 210,
+      "width": 150,
+      "height": 60,
+      "label": "Load"
+    },
+    {
+      "id": "dw",
+      "kind": "cylinder",
+      "x": 760,
+      "y": 370,
+      "width": 140,
+      "height": 90,
+      "label": "Data Warehouse"
+    },
+    {
+      "id": "api",
+      "kind": "rect",
+      "x": 80,
+      "y": 400,
+      "width": 140,
+      "height": 50,
+      "label": "REST API"
+    },
+    {
+      "id": "queue",
+      "kind": "double_rect",
+      "x": 300,
+      "y": 390,
+      "width": 150,
+      "height": 70,
+      "label": "Message Queue"
+    }
+  ],
+  "arrows": [
+    {
+      "source": "src",
+      "target": "extract",
+      "source_port": "right",
+      "target_port": "left",
+      "flow": "read"
+    },
+    {
+      "source": "extract",
+      "target": "transform",
+      "source_port": "right",
+      "target_port": "left",
+      "flow": "control"
+    },
+    {
+      "source": "transform",
+      "target": "load",
+      "source_port": "right",
+      "target_port": "left",
+      "flow": "write"
+    },
+    {
+      "source": "load",
+      "target": "dw",
+      "source_port": "bottom",
+      "target_port": "top",
+      "flow": "data"
+    },
+    {
+      "source": "api",
+      "target": "queue",
+      "source_port": "right",
+      "target_port": "left",
+      "flow": "control"
+    },
+    {
+      "source": "queue",
+      "target": "transform",
+      "source_port": "top",
+      "target_port": "bottom",
+      "flow": "read"
+    }
+  ]
+}
