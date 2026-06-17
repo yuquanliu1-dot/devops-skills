@@ -1,0 +1,32 @@
+[
+  {
+    "username": "user1",
+    "password": "pass123",
+    "shouldSucceed": true,
+    "description": "正常登录"
+  },
+  {
+    "username": "user1",
+    "password": "wrongpass",
+    "shouldSucceed": false,
+    "description": "密码错误"
+  },
+  {
+    "username": "",
+    "password": "pass123",
+    "shouldSucceed": false,
+    "description": "用户名为空"
+  },
+  {
+    "username": "user1",
+    "password": "",
+    "shouldSucceed": false,
+    "description": "密码为空"
+  },
+  {
+    "username": "invalid",
+    "password": "pass123",
+    "shouldSucceed": false,
+    "description": "用户不存在"
+  }
+]
