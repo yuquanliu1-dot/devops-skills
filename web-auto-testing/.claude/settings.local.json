@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node:*)",
+      "mcp__plugin_playwright_playwright__browser_wait_for",
+      "mcp__plugin_playwright_playwright__browser_click",
+      "mcp__plugin_playwright_playwright__browser_snapshot",
+      "Bash(npx playwright test:*)",
+      "Bash(npx playwright install:*)",
+      "Bash(npm run test:*)",
+      "mcp__plugin_playwright_playwright__browser_navigate",
+      "mcp__plugin_playwright_playwright__browser_run_code",
+      "mcp__plugin_playwright_playwright__browser_select_option",
+      "mcp__plugin_playwright_playwright__browser_type",
+      "mcp__plugin_playwright_playwright__browser_close",
+      "Bash(mv C:/Users/15308/.claude/skills/web-auto-testing/agents/test-executor.md C:/Users/15308/.claude/skills/web-auto-testing/test-executor-prompt.md)",
+      "Bash(rmdir C:/Users/15308/.claude/skills/web-auto-testing/agents)",
+      "Bash(grep -E \"^test-.*\\\\.md$|^SKILL\\\\.md$\")",
+      "Bash(mkdir -p \"C:/Users/15308/.claude/skills/web-auto-testing/agents\")",
+      "Bash(mv \"C:/Users/15308/.claude/skills/web-auto-testing/test-executor-prompt.md\" \"C:/Users/15308/.claude/skills/web-auto-testing/agents/test-executor.md\")"
+    ]
+  }
+}
