@@ -1,0 +1,53 @@
+{
+  "skill_name": "web-auto-testing",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "为员工通信录应用生成 Playwright 测试脚本，验证搜索功能和数据准确性",
+      "expected_output": "生成测试计划和包含 L2 级数据验证的 .spec.js 文件，使用语义化选择器（getByRole 优先）",
+      "files": [],
+      "assertions": [
+        {
+          "name": "使用语义化选择器",
+          "check": "output_contains_getByRole"
+        },
+        {
+          "name": "包含数据准确性验证",
+          "check": "output_contains_L2_validation"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "帮我测试这个登录页面的功能",
+      "expected_output": "应询问测试 URL 和测试需求，不应直接生成代码",
+      "files": [],
+      "assertions": [
+        {
+          "name": "询问测试目标",
+          "check": "asks_for_test_url"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "写一个 Python 爬虫脚本抓取数据",
+      "expected_output": "不应触发此技能，因为这是爬虫任务不是测试任务",
+      "files": [],
+      "should_trigger": false,
+      "assertions": []
+    },
+    {
+      "id": 4,
+      "prompt": "生成测试报告，我已经运行了 npx playwright test",
+      "expected_output": "应解析测试结果并生成 Markdown 报告",
+      "files": [],
+      "assertions": [
+        {
+          "name": "解析测试结果",
+          "check": "parses_test_results"
+        }
+      ]
+    }
+  ]
+}
