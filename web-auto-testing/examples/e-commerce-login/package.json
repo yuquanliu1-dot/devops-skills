@@ -1,0 +1,19 @@
+{
+  "name": "e-commerce-login-tests",
+  "version": "1.0.0",
+  "description": "电商登录模块自动化测试示例（数据驱动）",
+  "scripts": {
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:debug": "playwright test --debug",
+    "test:headed": "playwright test --headed",
+    "report": "playwright show-report",
+    "codegen": "playwright codegen"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.40.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
