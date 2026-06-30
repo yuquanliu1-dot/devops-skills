@@ -636,10 +636,19 @@ function startServer() {
     try { process.kill(ownerPid, 0); return true; } catch (e) { return e.code === 'EPERM'; }
   }
 
-  // Periodically exit if the owner process died or we've been idle too long.
+  // Check every interval: clean up when idle for IDLE_TIMEOUT_MS.
+  // When the owner process exits, DISABLE monitoring rather than shutting down —
+  // this keeps the server alive on remote nodes where the spawn shell that
+  // launched us is short-lived (OWNER_PID dies seconds after start-server.sh
+  // returns, but the user's browser may not connect for many seconds more).
+  // The idle timeout still ensures cleanup if no one ever connects.
   const lifecycleCheck = setInterval(() => {
-    if (!ownerAlive()) shutdown('owner process exited');
-    else if (Date.now() - lastActivity > IDLE_TIMEOUT_MS) shutdown('idle timeout');
+    if (!ownerAlive()) {
+      console.log(JSON.stringify({ type: 'owner-exited', pid: ownerPid, action: 'monitoring-disabled' }));
+      ownerPid = null;
+    } else if (Date.now() - lastActivity > IDLE_TIMEOUT_MS) {
+      shutdown('idle timeout');
+    }
   }, LIFECYCLE_CHECK_MS);
   lifecycleCheck.unref();
 
